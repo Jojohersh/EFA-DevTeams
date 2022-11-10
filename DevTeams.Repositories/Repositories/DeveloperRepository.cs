@@ -43,6 +43,16 @@ public class DeveloperRepository
     }
     return results;
   }
+  //read by HasPluralSight
+  public List<Developer> GetDevelopersNotHasPluralSight() {
+    List<Developer> results = new List<Developer>();
+    foreach (Developer dev in _devsDB) {
+      if (dev.HasPluralSight == false) {
+        results.Add(dev);
+      }
+    }
+    return results;
+  }
   // update
   public Developer UpdateDeveloperByID(int ID, Developer updatedDev)
   {
