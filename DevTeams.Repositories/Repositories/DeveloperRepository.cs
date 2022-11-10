@@ -33,6 +33,16 @@ public class DeveloperRepository
   {
     return _devsDB;
   }
+  //read by Team
+  public List<Developer> GetDevelopersByTeamID(int TeamID) {
+    List<Developer> results = new List<Developer>();
+    foreach (Developer dev in _devsDB) {
+      if (dev.TeamID == TeamID) {
+        results.Add(dev);
+      }
+    }
+    return results;
+  }
   // update
   public Developer UpdateDeveloperByID(int ID, Developer updatedDev)
   {
@@ -57,15 +67,20 @@ public class DeveloperRepository
   public void SeedDB()
   {
     Developer dev1 = new Developer("Jordan Hershberger");
-    Developer dev2 = new Developer("Rachael Sievers");
-    Developer dev3 = new Developer("Terry Brown");
+    dev1.TeamID = 1;
+    Developer dev2 = new Developer("Rachael Sievers", true);
+    dev2.TeamID = 1;
+    Developer dev3 = new Developer("Terry Brown", true);
+    Developer dev4 = new Developer("Randy Quaid", true);
+    Developer dev5 = new Developer("Steve Jobs");
+    Developer dev6 = new Developer("Ada Lovelace");
 
-    DevTeam team = new DevTeam("Product");
-    var added = AddDeveloper(dev1);
-    System.Console.WriteLine($"Added {dev1.FullName}:{added}");
-    added = AddDeveloper(dev2);
-    System.Console.WriteLine($"Added {dev2.FullName}:{added}");
-    added = AddDeveloper(dev3);
-    System.Console.WriteLine($"Added {dev3.FullName}:{added}");
+    AddDeveloper(dev1);
+    AddDeveloper(dev2);
+    AddDeveloper(dev3);
+    AddDeveloper(dev4);
+    AddDeveloper(dev5);
+    AddDeveloper(dev6);
+    
   }
 }
