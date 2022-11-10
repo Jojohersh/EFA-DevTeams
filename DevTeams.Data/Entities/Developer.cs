@@ -29,4 +29,7 @@ public class Developer
     HasPluralSight = hasPluralSight;
   }
   // methods
+  public override string ToString() {
+    return ID.ToString().PadRight(3) + "| "+FullName.PadRight(40) + "| " + TeamID.ToString().PadRight(3) + "| " + HasPluralSight.ToString();
+  }
 }
