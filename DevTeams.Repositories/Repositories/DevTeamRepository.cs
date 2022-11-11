@@ -56,11 +56,18 @@ public class DevTeamRepository
     public void SeedDB()
     {
         DevTeam team1 = new DevTeam("Product");
+        team1.AddMember(0);
+        team1.AddMember(3);
         DevTeam team2 = new DevTeam("R&D");
+        team2.AddMember(2);
+        team2.AddMember(5);
         DevTeam team3 = new DevTeam("DevOps");
-
+        team3.AddMember(1);
+        team3.AddMember(4);
+        
         AddDevTeam(team1);
         AddDevTeam(team2);
         AddDevTeam(team3);
+        
     }
 }

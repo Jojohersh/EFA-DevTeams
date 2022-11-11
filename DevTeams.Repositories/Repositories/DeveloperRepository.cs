@@ -44,10 +44,10 @@ public class DeveloperRepository
     return results;
   }
   //read by HasPluralSight
-  public List<Developer> GetDevelopersNotHasPluralSight() {
+  public List<Developer> GetDevelopersByHasPluralSight(bool HasPluralSight) {
     List<Developer> results = new List<Developer>();
     foreach (Developer dev in _devsDB) {
-      if (dev.HasPluralSight == false) {
+      if (dev.HasPluralSight == HasPluralSight) {
         results.Add(dev);
       }
     }
@@ -77,13 +77,17 @@ public class DeveloperRepository
   public void SeedDB()
   {
     Developer dev1 = new Developer("Jordan Hershberger");
-    dev1.TeamID = 1;
+    dev1.TeamID = 0;
     Developer dev2 = new Developer("Rachael Sievers", true);
-    dev2.TeamID = 1;
+    dev2.TeamID = 2;
     Developer dev3 = new Developer("Terry Brown", true);
+    dev3.TeamID = 1;
     Developer dev4 = new Developer("Randy Quaid", true);
+    dev4.TeamID = 0;
     Developer dev5 = new Developer("Steve Jobs");
+    dev5.TeamID = 2;
     Developer dev6 = new Developer("Ada Lovelace");
+    dev6.TeamID = 1;
 
     AddDeveloper(dev1);
     AddDeveloper(dev2);

@@ -24,8 +24,13 @@ public class Developer
   public Developer(string fullName, bool hasPluralSight)
   {
     string[] splitName = fullName.Split(' ');
+    if (splitName.Length == 2) {
     FirstName = splitName[0];
     LastName = splitName[1];
+    } else {
+      FirstName = fullName;
+      LastName = "";
+    }
     HasPluralSight = hasPluralSight;
   }
   // methods
